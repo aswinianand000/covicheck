@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 align="center" class="mb-3" >Enterprise Radiology Solutions</h1>
+    <div class="row">
+        <div class="col-sm-8">
+            <img class="img-fluid" src="../static/images/covid.jpeg" alt="">
+            <h3 align="center">
+                COVID-19 Artificial Intelligence Diagnostic Assitant
+            </h3>
+            <blockquote class="blockquote text-justify">
+                <p class="mb-0">Enabling healthcare providers to quickly indentify COVID-19 patients to effectively start the
+                    treatment. The diagnostic assistant analyzes a chest X-Ray scan through a sophisticated AI
+                    algorithm to produce a highly accurate and sensitive report.
+                </p>
+            </blockquote>
+            <div class="row">
+                <div class="col-sm">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="../static/images/accessible.png" class="img-fluid img-thumbnail" alt="">
+                            <h5 class="card-title" align="center">Accessible From Everywhere</h5>
+                            <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="../static/images/scan reports.jpg" class="img-fluid img-thumbnail" alt="">
+                            <h5 class="card-title" align="center">Scan Reports</h5>
+                            <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="card">
+                        <div class="card-body">
+                            <img src="../static/images/24_7.png" class="img-fluid img-thumbnail" alt="">
+                            <h5 class="card-title" align="center">24/7 Service</h5>
+                            <!-- <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                            <a href="#" class="btn btn-primary">Go somewhere</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm">
+            <form method="POST" acion="" class="p-3 bg-info text-white">
+                <h3 align="center">User Registration</h3>
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    id="fullName"
+                    name="fullName"
+                    placeholder="Enter Full Name"
+                    value="{{ request.form['fullName'] }}"
+                    />
+                </div>
+                <div class="form-group">
+                    <label for="facilityName">Facility Name</label>
+                    <input
+                    type="text"
+                    class="form-control"
+                    id="facilityName"
+                    name="facilityName"
+                    placeholder="Enter Facility Name"
+                    value="{{ request.form['facilityName'] }}"
+                    />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    name="email"
+                    placeholder="Enter Email"
+                    value="{{ request.form['email'] }}"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="password1">Password</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password1"
+                    name="password1"
+                    placeholder="Enter Password"
+                    value="{{ request.form['password1'] }}"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="password2">Password (Confirm)</label>
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="password2"
+                    name="password2"
+                    placeholder="Confirm Password"
+                    value="{{ request.form['password2'] }}"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="contact">Contact Number</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="contact"
+                    name="contact"
+                    placeholder="Enter Contact Number"
+                    value="{{ request.form['contact'] }}"
+                  />
+                </div>
+                <div class="form-group">
+                    <label for="terms">
+                        <input
+                        type="checkbox"
+                        id="terms"
+                        name="terms"
+                        required>
+                        I agree to the <a href="#" class="text-light">terms and conditions</a>
+                    </label>
+                </div>
+                <button type="submit" class="btn btn-primary btn-light">Register</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+    

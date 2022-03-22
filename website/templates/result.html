@@ -1,0 +1,65 @@
+{% extends "base.html" %} {% block title %}Covicheck - ERS Result{% endblock %}
+{% block content %}
+    {% if patient is defined %}
+    <div class="card text-center">
+        <div class="card-body bg-info">
+            <a href="{{ '../static/test_images/'+patient.file_name }}" download>
+                <img src="{{ '../static/test_images/'+patient.file_name }}" class="img-fluid img-thumbnail" alt="{{ patient.file_name }}" width="200" height="200">
+            </a>
+            <h5 class="card-title" align="center">Result: {{ patient.result }}</h5>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">Patient ID: {{ patient.p_id }}</li>
+                <li class="list-group-item">Patient Name: {{ patient.full_name }}</li>
+                <li class="list-group-item">Patient Age: {{ patient.age }}</li>
+                <li class="list-group-item">Patient Gender: {{ patient.gender }}</li>
+              </ul>
+        </div>
+    </div>
+    <br><br>
+    {% endif %}
+    <h1 align="center">Patient Data</h1>
+    <table id="patientTable" class="table table-bordered table-sm" cellspacing="0" width="100%">
+        <thead>
+            <tr class="table-dark">
+                <td>Date</td>
+                <td>Patient ID</td>
+                <td>Patient Full Name</td>
+                <td>Patient Age</td>
+                <td>Patient Gender</td>
+                <td>Patient Result</td>
+                <td>Download X-Ray</td>
+            </tr>
+        </thead>
+        <tbody>
+        {% for result in user.patients %}
+            {% if result.result == "COVID" %}
+            <tr class="table-danger">
+            {% elif result.result == "Viral Pneumonia" %}
+            <tr class="table-warning">
+            {% elif result.result == "Lung_Opacity" %}
+            <tr class="table-info">
+            {% else %}
+            <tr class="table-success">
+            {% endif %}
+                <td>{{ result.date }}</td>
+                <td>{{ result.p_id }}</td>
+                <td>{{ result.full_name }}</td>
+                <td>{{ result.age }}</td>
+                <td>{{ result.gender }}</td>
+                <td>{{ result.result }}</td>
+                <!-- <td>
+                    <button type="button" onClick="getResult({{ result.id }})">
+                        <span aria-hidden="true">{{ result.result }}</span>
+                    </button>
+                </td> -->
+                <td align="center">
+                    <a href="{{ '../static/test_images/'+result.file_name }}" download>
+                        <img src="../static/images/download.png" alt="{{ result.file_name }}" width="20" height="20">
+                    </a>                    
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

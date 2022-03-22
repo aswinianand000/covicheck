@@ -1,0 +1,56 @@
+{% extends "base.html" %} {% block title %}Covicheck - ERS Home{% endblock %}
+{% block content %}
+    <form method="POST" acion="" class="p-3 bg-info text-white" enctype="multipart/form-data">
+        <h3 align="center">Run Covid Test</h3>
+        <div class="form-group">
+            <label for="pFullName">Patient Full Name</label>
+            <input
+                type="text"
+                class="form-control"
+                id="pFullName"
+                name="pFullName"
+                placeholder="Enter Patient Full Name"
+                value="{{ request.form['pFullName'] }}"
+            />
+        </div>
+        <div class="form-group">
+            <label for="pId">Patient ID</label>
+            <input
+                type="text"
+                class="form-control"
+                id="pId"
+                name="pId"
+                placeholder="Enter Patient ID"
+                value="{{ request.form['pId'] }}"
+            />
+        </div>
+        <div class="form-group">
+            <label for="pAge">Patient Age</label>
+            <input
+                type="text"
+                class="form-control"
+                id="pAge"
+                name="pAge"
+                placeholder="Enter Patient Age"
+                value="{{ request.form['pAge'] }}"
+            />
+        </div>
+        <div class="form-group">
+            <label for="pGender">Patient Gender</label>
+            <select class="form-control" id="pGender" name="pGender">
+                <option value="">Select Gender</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
+                <option value="T">Transgender</option>
+                <option value="O">Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="pChestXray">Patient Chest X-Ray Image</label>
+            <input type="file" class="form-control-file" id="pChestXray" name="pChestXray">
+        </div>
+        <br />
+        <button type="submit" class="btn btn-primary btn-light">Run Test</button>
+    </form>
+{% endblock %}
+    
